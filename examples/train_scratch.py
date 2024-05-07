@@ -22,7 +22,7 @@ def main():
     #     tensorboard_log="logs/pacman_scratch"
     # )
     model.learn(
-        total_timesteps=1,
+        total_timesteps=1e5,
         progress_bar=True,
         callback=EvalCallback(
             env,
