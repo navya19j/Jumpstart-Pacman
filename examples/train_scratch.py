@@ -1,11 +1,13 @@
 # import gymnasium as gym
-import gym
+# import gym
 from stable_baselines3 import TD3
 from stable_baselines3.common.callbacks import EvalCallback
-
+import gymnasium as gym
+import sys
+sys.modules["gym"] = gym
 
 def main():
-    env = gym.make("PointMaze_UMaze-v3", continuing_task=False, max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5", continuing_task=False, max_episode_steps=150)
     model = TD3(
         "MultiInputPolicy",
         env,
