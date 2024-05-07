@@ -11,7 +11,7 @@ def main():
     n = 10
     max_horizon = 60
     model = get_jsrl_algorithm(DQN)(
-        "MlpPolicy",
+        "CnnPolicy",
         env,
         policy_kwargs=dict(
             guide_policy=guide_policy,
