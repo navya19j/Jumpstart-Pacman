@@ -1,8 +1,6 @@
 from typing import Any, Dict, List, Optional, Tuple, Union
 import numpy as np
 import gymnasium as gym
-import sys
-sys.modules["gym"] = gym
 from stable_baselines3.common.base_class import BaseAlgorithm, Logger
 from stable_baselines3.common.on_policy_algorithm import OnPolicyAlgorithm
 from stable_baselines3.common.policies import BasePolicy

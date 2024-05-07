@@ -5,7 +5,6 @@ from stable_baselines3.common.callbacks import EvalCallback
 import numpy as np
 from jsrl import get_jsrl_algorithm
 
-
 def main():
     env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
     guide_policy = DQN.load("examples/models/pacman_guide_DQN/best_model").policy
