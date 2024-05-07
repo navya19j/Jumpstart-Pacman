@@ -7,7 +7,7 @@ import sys
 sys.modules["gym"] = gym
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", continuing_task=False, max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
     model = TD3(
         "MultiInputPolicy",
         env,

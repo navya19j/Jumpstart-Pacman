@@ -4,7 +4,7 @@ from stable_baselines3.common.callbacks import EvalCallback
 
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", continuing_task=False, max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5",  max_episode_steps=150)
     model = PPO(
         "MultiInputPolicy",
         env,

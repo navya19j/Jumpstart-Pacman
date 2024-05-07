@@ -5,7 +5,7 @@ from jsrl import get_jsrl_algorithm
 
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", continuing_task=False, max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5",max_episode_steps=150)
     guide_policy = TD3.load("examples/models/pacman_guide_TD3/best_model").policy
     max_horizon = 60
     model = get_jsrl_algorithm(TD3)(
