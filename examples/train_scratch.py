@@ -8,7 +8,7 @@ import sys
 sys.modules["gym"] = gym
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5")
     # any baseline model can be used here - Q learning
     model = DQN(
         "MultiInputPolicy",
