@@ -8,7 +8,7 @@ import sys
 sys.modules["gym"] = gym
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v0", max_episode_steps=150)
     # any baseline model can be used here - Q learning
     model = DQN(
         "MlpPolicy",
@@ -22,7 +22,7 @@ def main():
     #     tensorboard_log="logs/pacman_scratch"
     # )
     model.learn(
-        total_timesteps=1e6,
+        total_timesteps=1e5,
         progress_bar=True,
         callback=EvalCallback(
             env,
