@@ -1,8 +1,7 @@
-import gymnasium as gym
+import gym
 from stable_baselines3 import TD3
 from stable_baselines3.common.callbacks import EvalCallback
 from jsrl import get_jsrl_algorithm
-
 
 def main():
     env = gym.make("ALE/MsPacman-v5",max_episode_steps=150)

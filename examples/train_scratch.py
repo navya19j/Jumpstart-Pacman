@@ -1,4 +1,4 @@
-# import gymnasium as gym
+import gymnasium as gym
 # import gym
 from stable_baselines3 import TD3
 from stable_baselines3 import DQN
@@ -8,21 +8,21 @@ import sys
 sys.modules["gym"] = gym
 
 def main():
-    env = gym.make("ALE/MsPacman-v5")
+    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
     # any baseline model can be used here - Q learning
     model = DQN(
-        "MultiInputPolicy",
+        "MlpPolicy",
         env,
         verbose=1,
     )
     # model = TD3(
     #     "MultiInputPolicy",
-    #     env,
+        # env,
     #     verbose=1,
     #     tensorboard_log="logs/pacman_scratch"
     # )
     model.learn(
-        total_timesteps=1e5,
+        total_timesteps=1,
         progress_bar=True,
         callback=EvalCallback(
             env,
