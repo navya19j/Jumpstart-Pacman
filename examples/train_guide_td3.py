@@ -12,7 +12,7 @@ def main():
     #     tensorboard_log="logs/pacman_guide"
     # )
     model = DQN(
-        "MlpPolicy",
+        "CnnPolicy",
         env,
         verbose=1,
     )
@@ -26,7 +26,6 @@ def main():
             best_model_save_path="examples/models/pacman_guide_DQN"
         ),
     )
-
 
 if __name__ == "__main__":
     main()
