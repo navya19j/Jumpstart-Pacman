@@ -20,6 +20,7 @@ def main():
             horizons=np.arange(max_horizon, -1, -max_horizon // n,)
         ),
         verbose=1,
+        tensorboard_log="logs/pacman_jsrl_curriculum"
     )
     model.learn(
         total_timesteps=1e5,

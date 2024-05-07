@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 from stable_baselines3 import TD3
 from stable_baselines3 import DQN
 from stable_baselines3.common.callbacks import EvalCallback
