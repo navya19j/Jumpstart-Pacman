@@ -23,13 +23,7 @@ def main():
     # )
     model.learn(
         total_timesteps=1e5,
-        progress_bar=True,
-        callback=EvalCallback(
-            env,
-            n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_scratch_DQN"
-        ),
-    )
+        progress_bar=True)
 
     model.save("examples/models/pacman_scratch_DQN")
 
