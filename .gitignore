@@ -3,3 +3,7 @@
 
 #ignore models
 *.zip
+
+# ignore models anywhere in the repo
+**/*.zip
+examples/examples/models/pacman_scratch_DQN/best_model.zip
