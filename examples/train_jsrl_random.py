@@ -9,7 +9,7 @@ def main():
     guide_policy = DQN.load("examples/models/pacman_guide_DQN/best_model").policy
     max_horizon = 60
     model = get_jsrl_algorithm(DQN)(
-        "MultiInputPolicy",
+        "MlpPolicy",
         env,
         policy_kwargs=dict(
             guide_policy=guide_policy,
