@@ -26,7 +26,8 @@ def main():
 
     env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 500000
+    # n_timesteps = 10000000
+    n_timesteps = 500
     normalize = False
     seed = 42
     frame_stack = 4
@@ -87,7 +88,7 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_guide_DQN"
+            best_model_save_path="examples/models/pacman_guide_PPO"
         ),
     )
 
