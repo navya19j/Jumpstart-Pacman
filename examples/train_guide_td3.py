@@ -2,6 +2,7 @@ import gymnasium as gym
 from stable_baselines3 import TD3
 from stable_baselines3 import DQN
 from stable_baselines3 import PPO
+from stable_baselines3.common.env_util import make_atari_env, make_vec_env
 from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.vec_env import (
     DummyVecEnv,
@@ -13,7 +14,6 @@ from stable_baselines3.common.vec_env import (
     is_vecenv_wrapped,
 )
 from collections import OrderedDict
-from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.preprocessing import is_image_space, is_image_space_channels_first
 from gymnasium import spaces
 from huggingface_sb3 import EnvironmentName
@@ -40,7 +40,7 @@ def main():
         return spec.make(**kwargs)
 
     # Make the environment
-    env = make_vec_env(
+    env = make_atari_env(
         make_env,
         n_envs=8,
         seed=seed,

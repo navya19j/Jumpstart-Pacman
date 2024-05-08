@@ -1,6 +1,7 @@
 import gymnasium as gym
 from stable_baselines3 import TD3
 from stable_baselines3 import PPO
+from stable_baselines3.common.env_util import make_atari_env, make_vec_env
 from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.vec_env import (
     DummyVecEnv,
@@ -26,7 +27,7 @@ def main():
     n_timesteps = 1e5
     # n_timesteps = 1e4
     normalize = False
-    seed = 42
+    seed = 0
     frame_stack = 4
     vec_env_type = "dummy"
     vec_env_class = {"dummy": DummyVecEnv, "subproc": SubprocVecEnv}[vec_env_type]
@@ -37,7 +38,7 @@ def main():
         return spec.make(**kwargs)
 
     # Make the environment
-    env = make_vec_env(
+    env = make_atari_env(
         make_env,
         n_envs=8,
         seed=seed,
