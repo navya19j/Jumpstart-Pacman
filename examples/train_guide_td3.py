@@ -6,8 +6,9 @@ from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.vec_env import vec_frame_stack
 from stable_baselines3.common.env_util import make_atari_env
 from stable_baselines3.common.evaluation import evaluate_policy
-from stable_baselines3.common.atari_wrappers import wrap_deepmind, NoopResetEnv, MaxAndSkipEnv
-from stable_baselines3.bench import Monitor
+from stable_baselines3.contrib.common.wrappers import wrap_deepmind
+from stable_baselines3.common.wrappers import NoopResetEnv, MaxAndSkipEnv
+# from stable_baselines3.bench import Monitor
 from stable_baselines3.common.vec_env import VecEnvWrapper, DummyVecEnv, VecNormalize, VecFrameStack, SubprocVecEnv
 
 import warnings
