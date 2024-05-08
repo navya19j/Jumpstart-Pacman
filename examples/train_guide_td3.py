@@ -93,6 +93,9 @@ def main():
         ),
     )
 
+    # save the model
+    model.save("examples/models/pacman_guide_PPO")
+
     # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=100)
     # print(f"mean_reward:{mean_reward:.2f} +/- {std_reward:.2f}")
 
