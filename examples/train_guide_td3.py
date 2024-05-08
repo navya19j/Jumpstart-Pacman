@@ -4,7 +4,7 @@ from stable_baselines3 import DQN
 from stable_baselines3.common.callbacks import EvalCallback
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5", max_episode_steps=250)
     # model = TD3(
     #     "MultiInputPolicy",
     #     env,
@@ -17,8 +17,8 @@ def main():
         verbose=1,
     )
     model.learn(
-        total_timesteps=1e5,
-        log_interval=10,
+        total_timesteps=4e6,
+        log_interval=100,
         progress_bar=True,
         callback=EvalCallback(
             env,

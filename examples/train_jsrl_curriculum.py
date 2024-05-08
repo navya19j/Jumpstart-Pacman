@@ -6,10 +6,10 @@ import numpy as np
 from jsrl import get_jsrl_algorithm
 
 def main():
-    env = gym.make("ALE/MsPacman-v5", max_episode_steps=150)
+    env = gym.make("ALE/MsPacman-v5", max_episode_steps=250)
     guide_policy = DQN.load("examples/models/pacman_guide_DQN/best_model").policy
     n = 10
-    max_horizon = 60
+    max_horizon = 250
     model = get_jsrl_algorithm(DQN)(
         "CnnPolicy",
         env,
@@ -23,7 +23,7 @@ def main():
         tensorboard_log="logs/pacman_jsrl_curriculum"
     )
     model.learn(
-        total_timesteps=1e5,
+        total_timesteps=4e6,
         log_interval=10,
         progress_bar=True,
         callback=EvalCallback(
