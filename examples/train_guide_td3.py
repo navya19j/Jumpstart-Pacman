@@ -24,7 +24,7 @@ def main():
         verbose=1,
     )
     model.learn(
-        total_timesteps=10000000,
+        total_timesteps=1e5,
         log_interval=100,
         progress_bar=True,
         callback=EvalCallback(
