@@ -83,11 +83,11 @@ def main():
     )
     model.learn(
         total_timesteps=n_timesteps,
-        log_interval=100,
+        log_interval=10,
         progress_bar=True,
         callback=EvalCallback(
             env,
-            n_eval_episodes=100,
+            n_eval_episodes=10,
             best_model_save_path="examples/models/pacman_guide_PPO"
         ),
     )
