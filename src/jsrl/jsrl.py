@@ -148,8 +148,6 @@ def get_jsrl_policy(ExplorationPolicy: BasePolicy):
                 (used in recurrent policies)
             """
             horizon = self.horizon
-            if horizon is None or horizon < 0:
-                horizon = 0
             if not self.training and not self.jsrl_evaluation:
                 horizon = 0
             if horizon is None or horizon < 0:
