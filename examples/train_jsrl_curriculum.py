@@ -84,7 +84,7 @@ def main():
     )
     model.learn(
         total_timesteps=1e6,
-        log_interval=10
+        log_interval=10,
         progress_bar=True,
         callback=EvalCallback(
             env,
