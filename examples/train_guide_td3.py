@@ -85,6 +85,7 @@ def main():
         total_timesteps=n_timesteps,
         log_interval=10,
         progress_bar=True,
+        tensorboard_log="logs/pacman_guide",
         callback=EvalCallback(
             env,
             n_eval_episodes=10,
