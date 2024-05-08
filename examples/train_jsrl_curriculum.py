@@ -88,7 +88,7 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_jsrl_curriculum_DQN"
+            best_model_save_path="examples/models/pacman_jsrl_curriculum_PPO"
         ),
     )
 
