@@ -67,7 +67,7 @@ def main():
             print("Wrapping the env in a VecTransposeImage.")
             env = VecTransposeImage(env)
 
-    guide_policy = PPO.load("/home/nj2513/rl-baselines3-zoo/rl-trained-agents/ppo/ppo-ALE-MsPacman-v5").policy
+    guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacman_guide_PPO/best_model").policy
     n = 10
     max_horizon = 150
     model = get_jsrl_algorithm(PPO)(
@@ -89,7 +89,7 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_jsrl_curriculum_PPO"
+            best_model_save_path="examples/models/pacman_jsrl_curriculum_PPO_trained"
         ),
     )
 
