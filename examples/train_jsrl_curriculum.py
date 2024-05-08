@@ -69,7 +69,7 @@ def main():
 
     guide_policy = PPO.load("/home/nj2513/rl-baselines3-zoo/rl-trained-agents/ppo/ppo-ALE-MsPacman-v5").policy
     n = 10
-    max_horizon = 650
+    max_horizon = 150
     model = get_jsrl_algorithm(PPO)(
         "CnnPolicy",
         env,
@@ -84,7 +84,7 @@ def main():
     )
     model.learn(
         total_timesteps=1e6,
-        log_interval=10,
+        log_interval=10
         progress_bar=True,
         callback=EvalCallback(
             env,
