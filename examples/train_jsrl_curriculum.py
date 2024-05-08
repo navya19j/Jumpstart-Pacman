@@ -23,7 +23,7 @@ from jsrl import get_jsrl_algorithm
 def main():
     env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 10000000
+    n_timesteps = 1e5
     # n_timesteps = 1e4
     normalize = False
     seed = 42
