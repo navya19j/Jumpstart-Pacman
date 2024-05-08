@@ -152,6 +152,8 @@ def get_jsrl_policy(ExplorationPolicy: BasePolicy):
                 horizon = 0
             if horizon is None or horizon < 0:
                 horizon = 0
+            print(f"Horizon: {horizon}")
+            print(f"Timesteps: {timesteps}")
             timesteps_lte_horizon = timesteps <= horizon
             timesteps_gt_horizon = timesteps > horizon
             if isinstance(observation, dict):
