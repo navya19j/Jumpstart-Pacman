@@ -66,7 +66,7 @@ def main():
             print("Wrapping the env in a VecTransposeImage.")
             env = VecTransposeImage(env)
 
-    guide_policy = PPO.load("/home/nj2513/rl-baselines3-zoo/rl-trained-agents/ppo/MsPacmanNoFrameskip-v4_1/best_model").policy
+    guide_policy = PPO.load("/home/nj2513/rl-baselines3-zoo/rl-trained-agents/ppo/ppo-ALE-MsPacman-v5").policy
     n = 10
     max_horizon = 650
     model = get_jsrl_algorithm(PPO)(
