@@ -6,15 +6,22 @@ from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.vec_env import vec_frame_stack
 from stable_baselines3.common.env_util import make_atari_env
 from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3.common.atari_wrappers import wrap_deepmind, NoopResetEnv, MaxAndSkipEnv
+from stable_baselines3.bench import Monitor
+from stable_baselines3.common.vec_env import VecEnvWrapper, DummyVecEnv, VecNormalize, VecFrameStack, SubprocVecEnv
 
 import warnings
 warnings.filterwarnings("ignore")
 
 def main():
     env = gym.make("ALE/MsPacman-v5", max_episode_steps=200)
+    env = NoopResetEnv(env, noop_max=2)
+    env = MaxAndSkipEnv(env, skip=4)
+    env = wrap_deepmind(env, episode_life=True, clip_rewards=False, frame_stack=True)
+    # env = Monitor(env, log_dir, allow_early_resets=True)
+    env = DummyVecEnv([lambda: env])
     # stack 4 frames
-    env = vec_frame_stack(env, n_stack=4)
-    
+
     # model = TD3(
     #     "MultiInputPolicy",
     #     env,
