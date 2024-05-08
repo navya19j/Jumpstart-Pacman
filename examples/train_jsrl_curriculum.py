@@ -1,16 +1,16 @@
 import gymnasium as gym
 from stable_baselines3 import TD3
-from stable_baselines3 import DQN
+from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import EvalCallback
 import numpy as np
 from jsrl import get_jsrl_algorithm
 
 def main():
     env = gym.make("ALE/MsPacman-v5", max_episode_steps=250)
-    guide_policy = DQN.load("examples/models/pacman_guide_DQN/best_model").policy
+    guide_policy = PPO.load("examples/models/pacman_guide_PPO/best_model").policy
     n = 10
-    max_horizon = 250
-    model = get_jsrl_algorithm(DQN)(
+    max_horizon = 650
+    model = get_jsrl_algorithm(PPO)(
         "CnnPolicy",
         env,
         policy_kwargs=dict(
