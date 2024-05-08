@@ -80,12 +80,12 @@ def main():
         n_epochs = 4,
         n_steps = 128,
         verbose=1,
+        tensorboard_log="logs/pacman_guide",
     )
     model.learn(
         total_timesteps=n_timesteps,
         log_interval=10,
         progress_bar=True,
-        tensorboard_log="logs/pacman_guide",
         callback=EvalCallback(
             env,
             n_eval_episodes=10,
