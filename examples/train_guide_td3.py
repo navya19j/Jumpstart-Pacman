@@ -29,7 +29,7 @@ def main():
     n_timesteps = 10000000
     # n_timesteps = 1e5
     normalize = False
-    seed = 42
+    seed = 0
     frame_stack = 4
     vec_env_type = "dummy"
     vec_env_class = {"dummy": DummyVecEnv, "subproc": SubprocVecEnv}[vec_env_type]
