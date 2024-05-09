@@ -73,19 +73,6 @@ if not is_vecenv_wrapped(env, VecTransposeImage):
         print("Wrapping the env in a VecTransposeImage.")
         env = VecTransposeImage(env)
 
-model = PPO(
-        "CnnPolicy",
-        env,
-        learning_rate = 2.5e-4,
-        batch_size = 256,
-        clip_range = 0.1,
-        ent_coef = 0.01,
-        vf_coef = 0.5,
-        n_epochs = 4,
-        n_steps = 128,
-        verbose=1,
-    )
-
 # folder = args.folder
 BASE_PATH   = args.path
 folder      = BASE_PATH.split("/")[-1]
@@ -108,14 +95,14 @@ shutil.unpack_archive(f"{BASE_PATH}.zip", f"{BASE_PATH}", 'zip')
 print("Loading the model")
 # Remove guide policy from model
 policy = torch.load(POLICY_PATH)
-keys = list(model.keys())
+keys = list(policy.keys())
 for key in keys:
     if 'guide' in key:
-        del model[key]
+        del policy[key]
 
 print("Saving the model")
 # Save it back
-torch.save(model, POLICY_PATH)
+torch.save(policy, POLICY_PATH)
 
 print("Zipping the folder")
 # zip the folder
