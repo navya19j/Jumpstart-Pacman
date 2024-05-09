@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 def main():
 
-    env_name = EnvironmentName("ALE/MrDo-v5")
+    env_name = EnvironmentName("ALE/NameThisGame-v5")
     env_kwargs = {}
     n_timesteps = 1e5
     normalize = False
@@ -79,7 +79,7 @@ def main():
         n_epochs = 4,
         n_steps = 128,
         verbose=1,
-        tensorboard_log="logs/aledo_guide",
+        tensorboard_log="logs/name_game_guide",
     )
     model.learn(
         total_timesteps=n_timesteps,
@@ -88,12 +88,12 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/aledo_guide_PPO"
+            best_model_save_path="examples/models/name_game_guide_PPO"
         ),
     )
 
     # save the model
-    model.save("examples/models/aledo_guide_PPO")
+    model.save("examples/models/name_game_guide_PPO")
 
 if __name__ == "__main__":
     main()
