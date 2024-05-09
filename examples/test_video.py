@@ -94,6 +94,7 @@ print("Copying the file")
 # create copy of file BASE_PATH
 shutil.copy(f"{BASE_PATH}.zip", f"{BASE_PATH}_copy.zip")
 
+print("Base path is", BASE_PATH)
 print("Unzipping the folder")
 # unzip the folder
 shutil.unpack_archive(f"{BASE_PATH}.zip", {BASE_PATH})
