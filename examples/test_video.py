@@ -101,7 +101,7 @@ for key in keys:
     if 'guide' in key:
         del policy[key]
         # print(f"Deleting {key}")
-
+print("State dict of model is", policy.policy.state_dict().keys())
 print("Saving the model")
 # Save it back
 torch.save(policy, POLICY_PATH)
@@ -113,6 +113,7 @@ shutil.make_archive(f"{BASE_PATH}_2", 'zip', f"{BASE_PATH}")
 print("Making it a normal policy")
 print("Loading model from", f"{BASE_PATH}_2")
 model = PPO.load(f"{BASE_PATH}_2")
+print("State dict of model is", model.policy.state_dict().keys())
 model_2 = PPO(
         "CnnPolicy",
         env)
