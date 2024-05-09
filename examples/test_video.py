@@ -132,8 +132,6 @@ model_2 = DQN(
         "CnnPolicy",
         env)
 
-
-
 print("Sharing the weights")
 # share the weights
 model_2.policy.load_state_dict(policy)

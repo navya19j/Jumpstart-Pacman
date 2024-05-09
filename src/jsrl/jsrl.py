@@ -152,8 +152,8 @@ def get_jsrl_policy(ExplorationPolicy: BasePolicy):
                 horizon = 0
             # timesteps = 100
             # horizon = 0
-            # if horizon is None or horizon < 0:
-            #     horizon = 0
+            if horizon is None or horizon < 0:
+                horizon = 0
             # print(f"Horizon: {horizon}")
             # print(f"Timesteps: {timesteps}")
             timesteps_lte_horizon = timesteps <= horizon
