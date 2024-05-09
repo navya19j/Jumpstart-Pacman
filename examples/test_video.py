@@ -90,12 +90,15 @@ folder      = BASE_PATH.split("/")[-1]
 DIR_PATH    = "/".join(BASE_PATH.split("/")[:-1])
 POLICY_PATH = f"{BASE_PATH}/policy.pth"
 
-# unzip the folder
-shutil.unpack_archive(f"{BASE_PATH}.zip", {BASE_PATH})
-
+print("Copying the folder")
 # create copy of folder
 shutil.copytree(f"{BASE_PATH}", f"{DIR_PATH}/{folder}_copy")
 
+print("Unzipping the folder")
+# unzip the folder
+shutil.unpack_archive(f"{BASE_PATH}.zip", {BASE_PATH})
+
+print("Loading the model")
 # Remove guide policy from model
 policy = torch.load(POLICY_PATH)
 keys = list(model.keys())
@@ -103,12 +106,15 @@ for key in keys:
     if 'guide' in key:
         del model[key]
 
+print("Saving the model")
 # Save it back
 torch.save(model, POLICY_PATH)
 
+print("Zipping the folder")
 # zip the folder
 shutil.make_archive(f"{BASE_PATH}", 'zip', f"{BASE_PATH}")
 
+print("Making it a normal policy")
 model = PPO.load(f"{BASE_PATH}")
 model_2 = PPO(
         "CnnPolicy",
@@ -122,9 +128,12 @@ model_2 = PPO(
         n_steps = 128,
         verbose=1,
     )
+
+print("Sharing the weights")
 # share the weights
 model_2.policy.load_state_dict(model.policy.state_dict())
 
+print("Saving the model")
 # SAVE_PATH
 # make directories if not exist
 shutil.rmtree(f"{BASE_PATH}/ppo")
