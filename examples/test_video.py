@@ -96,6 +96,7 @@ print("Loading the model")
 # Remove guide policy from model
 policy = torch.load(POLICY_PATH)
 keys = list(policy.keys())
+print("Keys are", keys)
 for key in keys:
     if 'guide' in key:
         del policy[key]
