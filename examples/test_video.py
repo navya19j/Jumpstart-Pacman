@@ -106,6 +106,7 @@ print("Saving the model")
 # Save it back
 torch.save(policy, POLICY_PATH)
 
+
 # print("Zipping the folder")
 # # zip the folder
 # shutil.make_archive(f"{BASE_PATH}_2", 'zip', f"{BASE_PATH}")
@@ -121,8 +122,7 @@ model_2 = PPO(
 
 print("Sharing the weights")
 # share the weights
-print("State dict of model is", policy.state_dict().keys())
-model_2.policy.load_state_dict(policy.state_dict())
+model_2.policy.load_state_dict(policy)
 
 print("Saving the model")
 # SAVE_PATH
