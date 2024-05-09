@@ -1,5 +1,5 @@
 import shutil
-from stable_baselines3 import PPO
+from stable_baselines3 import DQN
 from collections import OrderedDict
 from stable_baselines3.common.env_util import make_atari_env, make_vec_env
 from stable_baselines3.common.preprocessing import is_image_space, is_image_space_channels_first
@@ -116,7 +116,7 @@ torch.save(policy, POLICY_PATH)
 # model = PPO.load(f"{BASE_PATH}_2", exact_match=True)
 # print("State dict of model is", model.policy.state_dict().keys())
 policy = torch.load(POLICY_PATH)
-model_2 = PPO(
+model_2 = DQN(
         "CnnPolicy",
         env)
 
@@ -127,8 +127,8 @@ model_2.policy.load_state_dict(policy)
 print("Saving the model")
 # SAVE_PATH
 # make directories if not exist
-os.makedirs(f"{DIR_PATH}/ppo/ALE-MsPacman-v5", exist_ok=True)
-# also copy /home/nj2513/ppo/ALE-MsPacman-v5 folder to f"DIR_PATH}/ppo/
+os.makedirs(f"{DIR_PATH}/dqn/ALE-MsPacman-v5", exist_ok=True)
+# also copy /home/nj2513/dqn/ALE-MsPacman-v5 folder to f"DIR_PATH}/dqn/
 
-shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{DIR_PATH}/ppo/ALE-MsPacman-v5", dirs_exist_ok=True)
-model_2.save(f"{DIR_PATH}/ppo/ALE-MsPacman-v5")
+shutil.copytree("/home/nj2513/dqn/ALE-MsPacman-v5", f"{DIR_PATH}/dqn/ALE-MsPacman-v5", dirs_exist_ok=True)
+model_2.save(f"{DIR_PATH}/dqn/ALE-MsPacman-v5")

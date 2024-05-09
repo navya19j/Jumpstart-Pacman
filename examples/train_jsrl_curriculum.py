@@ -22,9 +22,9 @@ import numpy as np
 from jsrl import get_jsrl_algorithm
 
 def main():
-    env_name = EnvironmentName("ALE/MrDo-v5")
+    env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 1e4
+    n_timesteps = 1e5
     # n_timesteps = 1e4
     normalize = False
     seed = 0
@@ -67,9 +67,9 @@ def main():
             print("Wrapping the env in a VecTransposeImage.")
             env = VecTransposeImage(env)
 
-    guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacmanv5_guide_PPO/1e7").policy
+    guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacman_guide_PPO/best_model").policy
     n = 10
-    max_horizon = 600
+    max_horizon = 150
     model = get_jsrl_algorithm(PPO)(
         "CnnPolicy",
         env,
@@ -80,18 +80,19 @@ def main():
             horizons=np.arange(max_horizon, -1, -max_horizon // n,)
         ),
         verbose=1,
-        tensorboard_log="logs/pacmanv5_jsrl_curriculum_transfer_learning"
+        tensorboard_log="logs/pacman_jsrl_curriculum"
     )
     model.learn(
-        total_timesteps=1e5,
+        total_timesteps=1e6,
         log_interval=10,
         progress_bar=True,
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_PPO_transfer_learning"
+            best_model_save_path="examples/models/pacman_jsrl_curriculum_PPO_trained"
         ),
     )
+
 
 if __name__ == "__main__":
     main()
