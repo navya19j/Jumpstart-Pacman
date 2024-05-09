@@ -96,7 +96,7 @@ def main():
     )
 
     # save the model
-    model.save("/home/nj2513/Jumpstart-Pacman/examples/examples/models/aledo_guide_PPO/ppo/ALE-MontezumaRevenge-v5")
+    model.save("/home/nj2513/Jumpstart-Pacman/examples/examples/models/aledo_guide_PPO/ppo/ALE-NameThisGame-v5")
 
 if __name__ == "__main__":
     main()
