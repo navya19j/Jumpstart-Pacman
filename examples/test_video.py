@@ -119,8 +119,8 @@ model_2 = PPO(
 
 print("Sharing the weights")
 # share the weights
-print("State dict of model is", model.policy.state_dict())
-model_2.policy.load_state_dict(model.policy.state_dict().keys())
+print("State dict of model is", model.policy.state_dict().keys())
+model_2.policy.load_state_dict(model.policy.state_dict())
 
 print("Saving the model")
 # SAVE_PATH
