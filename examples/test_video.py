@@ -101,7 +101,7 @@ for key in keys:
     if 'guide' in key:
         del policy[key]
         # print(f"Deleting {key}")
-print("State dict of model is", policy.policy.state_dict().keys())
+print("State dict of model is", policy.state_dict().keys())
 print("Saving the model")
 # Save it back
 torch.save(policy, POLICY_PATH)
