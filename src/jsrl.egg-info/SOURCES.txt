@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/jsrl/__init__.py
+src/jsrl/jsrl.py
+src/jsrl.egg-info/PKG-INFO
+src/jsrl.egg-info/SOURCES.txt
+src/jsrl.egg-info/dependency_links.txt
+src/jsrl.egg-info/requires.txt
+src/jsrl.egg-info/top_level.txt

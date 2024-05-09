@@ -1,0 +1,4 @@
+stable-baselines3[extra]>=2.0.0
+
+[test]
+gymnasium-robotics>=1.2.2
