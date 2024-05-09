@@ -7,3 +7,19 @@
 # ignore models anywhere in the repo
 **/*.zip
 examples/examples/models/pacman_scratch_DQN/best_model.zip
+expert4.chkpt
+expert5.chkpt
+archive/data.pkl
+archive/version
+archive/data/0
+archive/data/1
+archive/data/2
+archive/data/3
+archive/data/4
+archive/data/5
+archive/data/6
+archive/data/7
+archive/data/8
+archive/data/9
+archive/data/10
+archive/data/11
