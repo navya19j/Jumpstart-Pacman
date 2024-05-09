@@ -90,9 +90,9 @@ folder      = BASE_PATH.split("/")[-1]
 DIR_PATH    = "/".join(BASE_PATH.split("/")[:-1])
 POLICY_PATH = f"{BASE_PATH}/policy.pth"
 
-print("Copying the folder")
-# create copy of folder
-shutil.copytree(f"{BASE_PATH}", f"{DIR_PATH}/{folder}_copy")
+print("Copying the file")
+# create copy of file BASE_PATH
+shutil.copy(f"{BASE_PATH}.zip", f"{BASE_PATH}_copy.zip")
 
 print("Unzipping the folder")
 # unzip the folder
