@@ -26,7 +26,7 @@ def main():
 
     env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 1e5
+    n_timesteps = 1e7
     normalize = False
     seed = 0
     frame_stack = 4
@@ -71,10 +71,15 @@ def main():
     model = DQN(
         "CnnPolicy",
         env,
-        learning_rate = 2.5e-4,
-        batch_size = 256,
-        n_steps = 128,
-        verbose=1,
+        learning_rate = 1e-4,
+        buffer_size = 100000,
+        batch_size = 32,
+        learning_starts = 100000,
+        target_update_interval = 1000,
+        train_freq = 4,
+        exploration_fraction = 0.1,
+        exploration_final_eps = 0.01,
+        optimize_memory_usage = False,
         tensorboard_log="logs/pacmanv5_guide",
     )
     model.learn(
