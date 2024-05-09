@@ -26,7 +26,7 @@ def main():
 
     env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 6e7
+    n_timesteps = 1e7
     normalize = False
     seed = 0
     frame_stack = 4
