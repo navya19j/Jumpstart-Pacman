@@ -109,7 +109,7 @@ print("Zipping the folder")
 shutil.make_archive(f"{BASE_PATH}", 'zip', f"{BASE_PATH}_new")
 
 print("Making it a normal policy")
-model = PPO.load(f"{BASE_PATH}_new.zip")
+model = PPO.load(f"{BASE_PATH}_new")
 model_2 = PPO(
         "CnnPolicy",
         env,
