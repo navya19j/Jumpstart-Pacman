@@ -69,7 +69,7 @@ def main():
 
     guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacmanv5_guide_PPO/1e7").policy
     n = 10
-    max_horizon = 250
+    max_horizon = 600
     model = get_jsrl_algorithm(PPO)(
         "CnnPolicy",
         env,
