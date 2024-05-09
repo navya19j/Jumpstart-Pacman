@@ -80,7 +80,7 @@ def main():
             horizons=np.arange(max_horizon, -1, -max_horizon // n,)
         ),
         verbose=1,
-        tensorboard_log="logs/pacman_jsrl_curriculum"
+        tensorboard_log="logs/pacmanv5_jsrl_curriculum"
     )
     model.learn(
         total_timesteps=1e6,
@@ -89,10 +89,9 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_jsrl_curriculum_PPO_trained"
+            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_PPO"
         ),
     )
-
 
 if __name__ == "__main__":
     main()
