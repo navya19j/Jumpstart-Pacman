@@ -96,7 +96,7 @@ def main():
     )
 
     # save the model
-    model.save("examples/models/name_game_guide_PPO")
+    model.save("/home/nj2513/Jumpstart-Pacman/examples/examples/models/aledo_guide_PPO/ppo/ALE-MiniatureGolf-v5")
 
 if __name__ == "__main__":
     main()
