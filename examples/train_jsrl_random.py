@@ -69,15 +69,14 @@ def main():
 
     guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacmanv5_guide_PPO/1e5").policy
     n = 10
-    max_horizon = 250
+    max_horizon = 60
     model = get_jsrl_algorithm(PPO)(
         "CnnPolicy",
         env,
         policy_kwargs=dict(
             guide_policy=guide_policy,
             max_horizon=max_horizon,
-            strategy="random",
-            horizons=np.arange(max_horizon, -1, -max_horizon // n,)
+            strategy="random"
         ),
         verbose=1,
         tensorboard_log="logs/pacmanv5_jsrl_random"
