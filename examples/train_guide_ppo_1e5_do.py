@@ -24,9 +24,12 @@ warnings.filterwarnings("ignore")
 
 def main():
 
-    env_name = EnvironmentName("ALE/NameThisGame-v5")
+# ALE/NameThisGame-v5
+# ALE/MontezumaRevenge-v5
+# ALE/MarioBros-v5
+    env_name = EnvironmentName("ALE/MiniatureGolf-v5")
     env_kwargs = {}
-    n_timesteps = 1e5
+    n_timesteps = 1e3
     normalize = False
     seed = 0
     frame_stack = 4
