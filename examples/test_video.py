@@ -99,6 +99,7 @@ keys = list(policy.keys())
 for key in keys:
     if 'guide' in key:
         del policy[key]
+        # print(f"Deleting {key}")
 
 print("Saving the model")
 # Save it back
