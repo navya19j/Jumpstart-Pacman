@@ -27,7 +27,7 @@ def main():
 # ALE/NameThisGame-v5
 # ALE/MontezumaRevenge-v5
 # ALE/MarioBros-v5
-    env_name = EnvironmentName("ALE/MiniatureGolf-v5")
+    env_name = EnvironmentName("ALE/MontezumaRevenge-v5")
     env_kwargs = {}
     n_timesteps = 1e4
     normalize = False
@@ -96,7 +96,7 @@ def main():
     )
 
     # save the model
-    model.save("/home/nj2513/Jumpstart-Pacman/examples/examples/models/aledo_guide_PPO/ppo/ALE-MiniatureGolf-v5")
+    model.save("/home/nj2513/Jumpstart-Pacman/examples/examples/models/aledo_guide_PPO/ppo/ALE-MontezumaRevenge-v5")
 
 if __name__ == "__main__":
     main()
