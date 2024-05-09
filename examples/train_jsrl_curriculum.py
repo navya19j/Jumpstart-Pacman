@@ -83,7 +83,7 @@ def main():
         tensorboard_log="logs/pacmanv5_jsrl_curriculum"
     )
     model.learn(
-        total_timesteps=1e6,
+        total_timesteps=1e5,
         log_interval=10,
         progress_bar=True,
         callback=EvalCallback(
