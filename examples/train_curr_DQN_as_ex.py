@@ -68,10 +68,10 @@ def main():
             print("Wrapping the env in a VecTransposeImage.")
             env = VecTransposeImage(env)
 
-    guide_policy = DQN.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacmanv5_guide_DQN/1e7").policy
+    guide_policy = PPO.load("/home/nj2513/Jumpstart-Pacman/examples/examples/models/pacmanv5_guide_PPO/1e7").policy
     n = 10
     max_horizon = 250
-    model = get_jsrl_algorithm(PPO)(
+    model = get_jsrl_algorithm(DQN)(
         "CnnPolicy",
         env,
         policy_kwargs=dict(
@@ -90,7 +90,7 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_DQN"
+            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_PPO_DQN"
         ),
     )
 
