@@ -106,10 +106,10 @@ torch.save(policy, POLICY_PATH)
 
 print("Zipping the folder")
 # zip the folder
-shutil.make_archive(f"{BASE_PATH}", 'zip', f"{BASE_PATH}_new")
+shutil.make_archive(f"{BASE_PATH}_2", 'zip', f"{BASE_PATH}")
 
 print("Making it a normal policy")
-model = PPO.load(f"{BASE_PATH}_new")
+model = PPO.load(f"{BASE_PATH}_2")
 model_2 = PPO(
         "CnnPolicy",
         env,
