@@ -129,5 +129,5 @@ print("Saving the model")
 # make directories if not exist
 os.makedirs(f"{BASE_PATH}/ppo_new", exist_ok=True)
 # also copy /home/nj2513/ppo/ALE-MsPacman-v5 folder to f"BASE_PATH}/ppo/
-shutil.copytree("/home/nj2513/ppo_new/ALE-MsPacman-v5", f"{BASE_PATH}/ppo_new/")
+shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{BASE_PATH}/ppo_new/")
 model_2.save(f"{BASE_PATH}/ppo_new/ALE-MsPacman-v5")
