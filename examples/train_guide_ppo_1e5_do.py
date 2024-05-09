@@ -27,7 +27,7 @@ def main():
 # ALE/NameThisGame-v5
 # ALE/MontezumaRevenge-v5
 # ALE/MarioBros-v5
-    env_name = EnvironmentName("ALE/MarioBros-v5")
+    env_name = EnvironmentName("ALE/MontezumaRevenge-v5")
     env_kwargs = {}
     n_timesteps = 1e5
     normalize = False
