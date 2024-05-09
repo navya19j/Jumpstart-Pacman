@@ -72,7 +72,7 @@ def main():
         "CnnPolicy",
         env,
         learning_rate = 2.5e-4,
-        batch_size = 512,
+        batch_size = 128,
         clip_range = 0.1,
         ent_coef = 0.01,
         vf_coef = 0.5,
