@@ -115,19 +115,11 @@ print("Loading model from", f"{BASE_PATH}_2")
 model = PPO.load(f"{BASE_PATH}_2")
 model_2 = PPO(
         "CnnPolicy",
-        env,
-        learning_rate = 2.5e-4,
-        batch_size = 256,
-        clip_range = 0.1,
-        ent_coef = 0.01,
-        vf_coef = 0.5,
-        n_epochs = 4,
-        n_steps = 128,
-        verbose=1,
-    )
+        env)
 
 print("Sharing the weights")
 # share the weights
+print("State dict of model is", model.policy.state_dict())
 model_2.policy.load_state_dict(model.policy.state_dict())
 
 print("Saving the model")
