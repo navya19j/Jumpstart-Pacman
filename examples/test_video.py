@@ -97,7 +97,7 @@ shutil.copy(f"{BASE_PATH}.zip", f"{BASE_PATH}_copy.zip")
 print("Base path is", BASE_PATH)
 print("Unzipping the folder")
 # unzip the folder
-shutil.unpack_archive(f"{BASE_PATH}.zip", {BASE_PATH})
+shutil.unpack_archive(f"{BASE_PATH}.zip", {BASE_PATH}, "zip")
 
 print("Loading the model")
 # Remove guide policy from model
