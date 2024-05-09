@@ -13,6 +13,7 @@ from stable_baselines3.common.vec_env import (
     VecTransposeImage,
     is_vecenv_wrapped,
 )
+import os
 
 from huggingface_sb3 import EnvironmentName
 import gymnasium as gym
@@ -101,7 +102,7 @@ print("Base path is", BASE_PATH)
 print("Unzipping the folder")
 # unzip the folder
 # create a folder with the same name as the zip file
-shutil.rmtree(f"{BASE_PATH}")
+os.makedirs(BASE_PATH, exist_ok=True)
 shutil.unpack_archive(f"{BASE_PATH}.zip", f"{BASE_PATH}", 'zip')
 
 print("Loading the model")
@@ -142,7 +143,7 @@ model_2.policy.load_state_dict(model.policy.state_dict())
 print("Saving the model")
 # SAVE_PATH
 # make directories if not exist
-shutil.rmtree(f"{BASE_PATH}/ppo")
+os.makedirs(f"{BASE_PATH}/ppo", exist_ok=True)
 # also copy /home/nj2513/ppo/ALE-MsPacman-v5 folder to f"BASE_PATH}/ppo/
 shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{BASE_PATH}/ppo/ALE-MsPacman-v5")
 model_2.save(f"{BASE_PATH}/ppo/ALE-MsPacman-v5")
