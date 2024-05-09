@@ -19,6 +19,7 @@ import gymnasium as gym
 import shutil
 import argparse, sys
 import torch
+import zipfile
 
 parser=argparse.ArgumentParser()
 
@@ -88,6 +89,8 @@ model = PPO(
 BASE_PATH   = args.path
 folder      = BASE_PATH.split("/")[-1]
 DIR_PATH    = "/".join(BASE_PATH.split("/")[:-1])
+print("BASE_PATH", BASE_PATH)
+print("DIR_PATH", DIR_PATH)
 POLICY_PATH = f"{BASE_PATH}/policy.pth"
 
 print("Copying the file")
