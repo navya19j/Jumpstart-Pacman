@@ -22,7 +22,7 @@ import numpy as np
 from jsrl import get_jsrl_algorithm
 
 def main():
-    env_name = EnvironmentName("ALE/Pacman-v5")
+    env_name = EnvironmentName("ALE/MrDo-v5")
     env_kwargs = {}
     n_timesteps = 1e5
     # n_timesteps = 1e4
