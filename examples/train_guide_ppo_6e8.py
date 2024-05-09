@@ -26,8 +26,7 @@ def main():
 
     env_name = EnvironmentName("ALE/MsPacman-v5")
     env_kwargs = {}
-    n_timesteps = 10000000
-    # n_timesteps = 1e5
+    n_timesteps = 6e8
     normalize = False
     seed = 0
     frame_stack = 4
@@ -73,14 +72,14 @@ def main():
         "CnnPolicy",
         env,
         learning_rate = 2.5e-4,
-        batch_size = 256,
+        batch_size = 512,
         clip_range = 0.1,
         ent_coef = 0.01,
         vf_coef = 0.5,
         n_epochs = 4,
         n_steps = 128,
         verbose=1,
-        tensorboard_log="logs/pacman_guide",
+        tensorboard_log="logs/pacmanv5_guide",
     )
     model.learn(
         total_timesteps=n_timesteps,
@@ -89,15 +88,12 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacman_guide_PPO"
+            best_model_save_path="examples/models/pacmanv5_guide_PPO"
         ),
     )
 
     # save the model
-    model.save("examples/models/pacman_guide_PPO")
-
-    # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=100)
-    # print(f"mean_reward:{mean_reward:.2f} +/- {std_reward:.2f}")
+    model.save("examples/models/pacmanv5_guide_PPO")
 
 if __name__ == "__main__":
     main()
