@@ -103,8 +103,20 @@ for key in keys:
         # print(f"Deleting {key}")
 print("State dict of model is", policy.keys())
 print("Saving the model")
+# RuntimeError: Error(s) in loading state_dict for CnnPolicy:
+#         Missing key(s) in state_dict: "q_net.features_extractor.cnn.0.weight", "q_net.features_extractor.cnn.0.bias", "q_net.features_extractor.cnn.2.weight", "q_net.features_extractor.cnn.2.bias", "q_net.features_extractor.cnn.4.weight", "q_net.features_extractor.cnn.4.bias", "q_net.features_extractor.linear.0.weight", "q_net.features_extractor.linear.0.bias", "q_net.q_net.0.weight", "q_net.q_net.0.bias", "q_net_target.features_extractor.cnn.0.weight", "q_net_target.features_extractor.cnn.0.bias", "q_net_target.features_extractor.cnn.2.weight", "q_net_target.features_extractor.cnn.2.bias", "q_net_target.features_extractor.cnn.4.weight", "q_net_target.features_extractor.cnn.4.bias", "q_net_target.features_extractor.linear.0.weight", "q_net_target.features_extractor.linear.0.bias", "q_net_target.q_net.0.weight", "q_net_target.q_net.0.bias". 
+#         Unexpected key(s) in state_dict: "features_extractor.cnn.0.weight", "features_extractor.cnn.0.bias", "features_extractor.cnn.2.weight", "features_extractor.cnn.2.bias", "features_extractor.cnn.4.weight", "features_extractor.cnn.4.bias", "features_extractor.linear.0.weight", "features_extractor.linear.0.bias", "pi_features_extractor.cnn.0.weight", "pi_features_extractor.cnn.0.bias", "pi_features_extractor.cnn.2.weight", "pi_features_extractor.cnn.2.bias", "pi_features_extractor.cnn.4.weight", "pi_features_extractor.cnn.4.bias", "pi_features_extractor.linear.0.weight", "pi_features_extractor.linear.0.bias", "vf_features_extractor.cnn.0.weight", "vf_features_extractor.cnn.0.bias", "vf_features_extractor.cnn.2.weight", "vf_features_extractor.cnn.2.bias", "vf_features_extractor.cnn.4.weight", "vf_features_extractor.cnn.4.bias", "vf_features_extractor.linear.0.weight", "vf_features_extractor.linear.0.bias", "action_net.weight", "action_net.bias", "value_net.weight", "value_net.bias". 
+# # change keys features_extractor to q_net.features_extractor
+
+# Change the keys
+new_policy = OrderedDict()
+for key in policy.keys():
+    new_key = key.replace("features_extractor", "q_net.features_extractor")
+    new_policy[new_key] = policy[key]
+
 # Save it back
-torch.save(policy, POLICY_PATH)
+# torch.save(policy, POLICY_PATH)
+torch.save(new_policy, POLICY_PATH)
 
 
 # print("Zipping the folder")
@@ -119,6 +131,8 @@ policy = torch.load(POLICY_PATH)
 model_2 = DQN(
         "CnnPolicy",
         env)
+
+
 
 print("Sharing the weights")
 # share the weights
