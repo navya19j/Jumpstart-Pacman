@@ -124,4 +124,10 @@ model_2 = PPO(
     )
 # share the weights
 model_2.policy.load_state_dict(model.policy.state_dict())
-model_2.save(f"{BASE_PATH}")
+
+# SAVE_PATH
+# make directories if not exist
+shutil.rmtree(f"{BASE_PATH}/ppo")
+# also copy /home/nj2513/ppo/ALE-MsPacman-v5 folder to f"BASE_PATH}/ppo/
+shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{BASE_PATH}/ppo/ALE-MsPacman-v5")
+model_2.save(f"{BASE_PATH}/ppo/ALE-MsPacman-v5")
