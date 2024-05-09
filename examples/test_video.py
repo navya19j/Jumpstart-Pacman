@@ -112,7 +112,7 @@ shutil.make_archive(f"{BASE_PATH}_2", 'zip', f"{BASE_PATH}")
 
 print("Making it a normal policy")
 print("Loading model from", f"{BASE_PATH}_2")
-model = PPO.load(f"{BASE_PATH}_2")
+model = PPO.load(f"{BASE_PATH}_2", exact_match=True)
 print("State dict of model is", model.policy.state_dict().keys())
 model_2 = PPO(
         "CnnPolicy",
