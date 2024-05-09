@@ -29,7 +29,7 @@ def main():
 # ALE/MarioBros-v5
     env_name = EnvironmentName("ALE/MarioBros-v5")
     env_kwargs = {}
-    n_timesteps = 1e4
+    n_timesteps = 1e5
     normalize = False
     seed = 0
     frame_stack = 4
