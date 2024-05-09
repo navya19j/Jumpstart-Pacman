@@ -68,7 +68,7 @@ def main():
             print("Wrapping the env in a VecTransposeImage.")
             env = VecTransposeImage(env)
 
-    model = PPO(
+    model = DQN(
         "CnnPolicy",
         env,
         learning_rate = 2.5e-4,
@@ -88,12 +88,12 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacmanv5_guide_PPO"
+            best_model_save_path="examples/models/pacmanv5_guide_DQN"
         ),
     )
 
     # save the model
-    model.save("examples/models/pacmanv5_guide_PPO")
+    model.save("examples/models/pacmanv5_guide_DQN")
 
 if __name__ == "__main__":
     main()
