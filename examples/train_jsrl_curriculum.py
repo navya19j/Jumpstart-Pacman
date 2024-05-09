@@ -22,7 +22,7 @@ import numpy as np
 from jsrl import get_jsrl_algorithm
 
 def main():
-    env_name = EnvironmentName("ALE/MsPacman-v5")
+    env_name = EnvironmentName("ALE/Pacman-v5")
     env_kwargs = {}
     n_timesteps = 1e5
     # n_timesteps = 1e4
@@ -80,7 +80,7 @@ def main():
             horizons=np.arange(max_horizon, -1, -max_horizon // n,)
         ),
         verbose=1,
-        tensorboard_log="logs/pacmanv5_jsrl_curriculum"
+        tensorboard_log="logs/pacmanv5_jsrl_curriculum_transfer_learning"
     )
     model.learn(
         total_timesteps=1e5,
@@ -89,7 +89,7 @@ def main():
         callback=EvalCallback(
             env,
             n_eval_episodes=100,
-            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_PPO"
+            best_model_save_path="examples/models/pacmanv5_jsrl_curriculum_PPO_transfer_learning"
         ),
     )
 
