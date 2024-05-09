@@ -111,6 +111,7 @@ print("Zipping the folder")
 shutil.make_archive(f"{BASE_PATH}_2", 'zip', f"{BASE_PATH}")
 
 print("Making it a normal policy")
+print("Loading model from", f"{BASE_PATH}_2")
 model = PPO.load(f"{BASE_PATH}_2")
 model_2 = PPO(
         "CnnPolicy",
