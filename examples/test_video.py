@@ -127,7 +127,8 @@ model_2.policy.load_state_dict(policy)
 print("Saving the model")
 # SAVE_PATH
 # make directories if not exist
-os.makedirs(f"{DIR_PATH}/ppo_new", exist_ok=True)
+os.makedirs(f"{DIR_PATH}/ppo_new/ALE-MsPacman-v5", exist_ok=True)
 # also copy /home/nj2513/ppo/ALE-MsPacman-v5 folder to f"DIR_PATH}/ppo/
-shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{DIR_PATH}/ppo_new/", dirs_exist_ok=True)
+
+shutil.copytree("/home/nj2513/ppo/ALE-MsPacman-v5", f"{DIR_PATH}/ppo_new/ALE-MsPacman-v5", dirs_exist_ok=True)
 model_2.save(f"{DIR_PATH}/ppo_new/ALE-MsPacman-v5")
